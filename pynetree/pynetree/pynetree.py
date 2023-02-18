@@ -13,12 +13,17 @@ class State(pc.State):
 
 def link_box(item: list[list[str]]):
     name, url = item[0], item[1]
-    return pc.link(
-            # pc.button(pc.hstack(pc.image(src=f"/Linkedin.png"), pc.spacer(), pc.text(name))),
-            pc.button(pc.text(name)),
-            href=url,
-            color="rgb(107,99,246)",
-            is_external=True
+    return pc.box(
+            pc.link(
+                pc.hstack(pc.image(src=f"/{name}.png"), pc.text(name)),
+                # pc.button(pc.text(name)),
+                href=url,
+                color="rgb(107,99,246)",
+                is_external=True,
+            ),
+            bg="orange",
+            border_radius="md",
+            width="300px",
             )
 
 def project_box(item: list[list[str]]):
@@ -45,15 +50,34 @@ def index():
             pc.divider(),
             pc.heading("Side Projects", size="md"),
             pc.responsive_grid(
-                pc.box(pc.vstack(pc.image(src="/topcard.png", width="600px", height="80%"),pc.divider(), pc.heading("TopCard Mobile", size="sm")), height="15em", width="15em"),
+                pc.link(
+                    pc.box(
+                        pc.flex(
+                            pc.image(src="/topcard.png", width="600px", height="80%"),
+                            pc.spacer(), 
+                            pc.heading("TopCard Mobile", size="sm"),
+                            direction="column",
+                            align="flex-middle"
+                        ),
+                    height="15em", 
+                    width="15em", 
+                    border_radius="15px",
+                    border_color="grey",
+                    border_width="thick"), 
+                href="https://mytopcard.app/",
+                is_external=True),
+
                 pc.box(height="15em", width="15em", bg="lightblue"),
                 pc.box(height="15em", width="15em", bg="purple"),
-                columns=[1, 1, 3, 3, 3],
+                columns=[1, 1, 3],
                 spacing="4",
             ),
             pc.divider(),
             pc.heading("Social", size="md"),
-            pc.foreach(State.links, lambda item: link_box(item))
+            link_box(["Linkedin", "https://www.linkedin.com/in/blankdean/"]),
+            link_box(["Twitter", 'https://twitter.com/CodeWithDean']),
+            link_box(["Medium", 'https://medium.com/@blankdean'])
+            # pc.foreach(State.links, lambda item: link_box(item))
         )
     )
 
