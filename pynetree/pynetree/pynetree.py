@@ -1,7 +1,8 @@
-"""Welcome to Pynecone! This file outlines the steps to create a basic app."""
 from pcconfig import config
-
 import pynecone as pc
+from .components.projects import projects
+from .components.socials import socials
+from .components.skills import skills
 
 class State(pc.State):
     links: list[list[str]] = [
@@ -10,28 +11,15 @@ class State(pc.State):
         ["Medium", 'https://medium.com/@blankdean']
     ]
 
-
-def link_box(item: list[list[str]]):
-    name, url = item[0], item[1]
-    return pc.box(
-            pc.link(
-                pc.hstack(pc.image(src=f"/{name}.png"), pc.text(name)),
-                # pc.button(pc.text(name)),
-                href=url,
-                color="rgb(107,99,246)",
-                is_external=True,
-            ),
-            bg="orange",
-            border_radius="md",
-            width="300px",
-            )
-
-def project_box(item: list[list[str]]):
-    return pc.box(height="15em", width="15em", bg="lightgreen"),
+def intro():
+    return pc.text("""
+                Welcome to my personal website! I'm a software engineer and graduate computer science
+                student at the Georgia Institute of Technology. I'm currently contributing to
+                research in the field of edge cloud computing.
+            """, style=text_style)
 
 def about():
     return pc.text("About Page")
-
 
 def index():
     return pc.center(
@@ -42,41 +30,16 @@ def index():
             pc.text("Software Engineer | MSCS @ Georgia Tech"),
             pc.divider(),
             pc.heading("About", size="md"),
-            pc.text("""
-                Welcome to my personal website! I'm a software engineer and graduate computer science
-                student at the Georgia Institute of Technology. I'm currently contributing to
-                research in the field of edge cloud computing.
-            """, style=text_style),
+            intro(),
             pc.divider(),
-            pc.heading("Side Projects", size="md"),
-            pc.responsive_grid(
-                pc.link(
-                    pc.box(
-                        pc.flex(
-                            pc.image(src="/topcard.png", width="600px", height="80%"),
-                            pc.spacer(), 
-                            pc.heading("TopCard Mobile", size="sm"),
-                            direction="column",
-                            align="flex-middle"
-                        ),
-                    height="15em", 
-                    width="15em", 
-                    border_radius="15px",
-                    border_color="grey",
-                    border_width="thick"), 
-                href="https://mytopcard.app/",
-                is_external=True),
-
-                pc.box(height="15em", width="15em", bg="lightblue"),
-                pc.box(height="15em", width="15em", bg="purple"),
-                columns=[1, 1, 3],
-                spacing="4",
-            ),
+            pc.heading("Skills", size="md"),
+            skills(),
+            pc.divider(),
+            pc.heading("Projects", size="md"),
+            projects(),
             pc.divider(),
             pc.heading("Social", size="md"),
-            link_box(["Linkedin", "https://www.linkedin.com/in/blankdean/"]),
-            link_box(["Twitter", 'https://twitter.com/CodeWithDean']),
-            link_box(["Medium", 'https://medium.com/@blankdean'])
+            socials()
             # pc.foreach(State.links, lambda item: link_box(item))
         )
     )
