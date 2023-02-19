@@ -6,12 +6,6 @@ def social_box(item: list[str]):
             pc.link(
                 pc.image(src=f"/{name}.png", width = "48px", style=image_style),
                 pc.text(name, style=text_style),
-                # pc.hstack(
-                #     pc.image(src=f"/{name}.png", width = "48px"), 
-                #     pc.text(name),
-                #     align_items="center",
-                #     spacing="25%"
-                # ),
                 href=url,
                 color="rgb(107,99,246)",
                 is_external=True,
@@ -32,12 +26,12 @@ box_style = {
     "border_radius":"md",
     "width":"300px",
     "padding":"1",
-    "justify-items":"center"
+    "justifyItems":"center"
 }
 
 link_style = {
     "display":"flex",
-    "align-items":"center",
+    "alignItems":"center",
     "position":"relative",
     "height": "50px"
 }

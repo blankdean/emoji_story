@@ -34,5 +34,5 @@ def skills():
         )
 
 badge_style = {
-     "text-align":"center"
+     "textAlign":"center"
 }

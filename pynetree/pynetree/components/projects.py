@@ -36,6 +36,6 @@ project_box_style = {
 image_style = {
     "width":"600px", 
     "height":"110px",
-    "border-top-left-radius": "10px",
-    "border-top-right-radius": "10px"
+    "borderTopLeftRadius": "10px",
+    "borderTopRightRadius": "10px"
 }
