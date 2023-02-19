@@ -13,6 +13,6 @@ def intro():
 text_style = {
     # "font_family": "Comic Sans MS",
     "font_size": "1.2em",
-    "width": "50%",
+    "width": "55%",
     "textAlign": "center"
 }
