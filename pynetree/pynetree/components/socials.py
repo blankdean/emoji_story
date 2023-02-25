@@ -2,7 +2,7 @@ import pynecone as pc
 from .state import BaseState
 
 class CondState(BaseState):
-    show: bool = True
+    show: bool = False
     pin: str
     unlock_msg: str = "Enter pin to view resume."
 
@@ -13,7 +13,7 @@ class CondState(BaseState):
     def handle(self):
         if self.pin == "1234":
             return pc.redirect("https://finance.yahoo.com")
-        
+
     def redirect(self):
         if self.pin == "0208":
             self.unlock_msg = "Resume unlocked"
@@ -21,7 +21,7 @@ class CondState(BaseState):
         else:
             self.unlock_msg = "Incorrect pin to unlock resume."
 
-    
+
 def social_box(item: list[str]):
     name, url = item[0], item[1]
     return pc.box(
@@ -66,7 +66,7 @@ def resume_box(item: list[str]):
                     ),
                 pc.text("")
             ),
-            
+
         )
 
 def socials():
