@@ -4,9 +4,8 @@ from .components.projects import projects
 from .components.socials import socials
 from .components.skills import skills
 from .components.intro import intro
+from .components.state import BaseState
 
-class State(pc.State):
-    pass
 
 def about():
     return pc.text("About Page")
@@ -28,16 +27,20 @@ def index():
             pc.heading("Projects", size="md"),
             projects(),
             pc.divider(),
-            pc.heading("Social", size="md"),
-            socials()
+            pc.heading("Links", size="md"),
+            socials(),
             # pc.foreach(State.links, lambda item: link_box(item))
+            style = page_style
         )
     )
 
+page_style = {
+  "padding-bottom": "80px"
 
+}
 
 # Add state and page to the app.
-app = pc.App(state=State)
+app = pc.App(state=BaseState)
 app.add_page(
     index,
     title="Dean Portfolio",
