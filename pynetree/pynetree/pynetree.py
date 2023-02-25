@@ -35,7 +35,7 @@ def index():
     )
 
 page_style = {
-  "padding-bottom": "80px"
+  "paddingBottom": "80px"
 
 }
 
