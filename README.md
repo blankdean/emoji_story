@@ -5,7 +5,7 @@ This application harnesses the capabilities of the Pynecone Python library and O
 ## Demo
 
 Catch a glimpse of the application in action:
-[![Emoji Creator Video Demo](https://streamable.com/ko9hgy)](https://streamable.com/ko9hgy)
+[Emoji Story Video Demo](https://streamable.com/ko9hgy)
 
 ## How It Works
 
