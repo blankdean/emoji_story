@@ -2,7 +2,7 @@
 import pynecone as pc
 import openai
 
-openai.api_key = "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"
+openai.api_key = "" # removed key for security purpose
 
 
 class State(pc.State):
